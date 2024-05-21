@@ -19,20 +19,22 @@ class CalculatorService
         };
     }
 
-    private function add($a, $b) {
+    private function add(float $a, float $b): float
+    {
         return $a + $b;
     }
 
-    private function subtract($a, $b) {
+    private function subtract(float $a, float $b): float
+    {
         return $a - $b;
     }
 
-    private function multiply($a, $b): float|int
+    private function multiply(float $a, float $b): float|int
     {
         return $a * $b;
     }
 
-    private function divide($a, $b): float|int
+    private function divide(float $a, float $b): float|int
     {
         if ($b == 0) {
             throw new InvalidArgumentException('Division by zero.');
@@ -40,7 +42,7 @@ class CalculatorService
         return $a / $b;
     }
 
-    private function sqrt($a): float
+    private function sqrt(float $a): float
     {
         if ($a < 0) {
             throw new InvalidArgumentException('Cannot take square root of a negative number.');
