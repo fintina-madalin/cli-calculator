@@ -1,6 +1,6 @@
 ## Cli Calculator written in PHP
 
-* supported operations: +, -, /, *, sqrt
+* supported operations: ```+, -, /, *, sqrt
 
 ### Usage
 
@@ -16,5 +16,8 @@
    25 * 1
    32 / 10
    ```
+  
+### Testing
+To run the tests open a terminal and run ``vendor/bin/phpunit tests/*     ``
   
 #### Feel free to contribute and use this in any way you see fit
