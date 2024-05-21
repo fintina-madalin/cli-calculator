@@ -74,16 +74,4 @@ class CalculatorService
         }
         return sqrt($a);
     }
-
-    private function parseArguments(array $arguments): array {
-        if (count($arguments) < 2) {
-            throw new InvalidArgumentException('Insufficient arguments.');
-        }
-
-        $num1 = floatval($arguments[1]);
-        $operation = $arguments[2];
-        $num2 = isset($arguments[3]) ? floatval($arguments[3]) : null;
-
-        return [$num1, $operation, $num2];
-    }
 }

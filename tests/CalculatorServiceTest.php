@@ -45,17 +45,4 @@ class CalculatorServiceTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->calculator->calculate('^', 5, 2);
     }
-
-    public function testParseArgumentsValid(): void {
-        $argv = ['script.php', '5', '+', '2'];
-        $result = $this->invokeMethod($this->calculator, 'parseArguments', [$argv]);
-        $this->assertEquals([5.0, '+', 2.0], $result);
-    }
-
-    protected function invokeMethod(&$object, $methodName, array $parameters = []) {
-        $reflection = new ReflectionClass(get_class($object));
-        $method = $reflection->getMethod($methodName);
-        $method->setAccessible(true);
-        return $method->invokeArgs($object, $parameters);
-    }
 }
