@@ -7,15 +7,30 @@ use InvalidArgumentException;
 
 class CalculatorService
 {
-    public function run(): void {
-        global $argv;
+    public function runInteractive(): void
+    {
+        while (true) {
+            echo "Enter an operation (+, -, *, /, sqrt), or 'exit' to quit: ";
+            $input = trim(fgets(STDIN));
 
-        try {
-            list($num1, $operation, $num2) = $this->parseArguments($argv);
-            $result = $this->calculate($operation, $num1, $num2);
-            echo $result . "\n";
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getMessage() . "\n";
+            if ($input === 'exit') {
+                break;
+            }
+
+            $tokens = explode(' ', $input);
+
+            if (count($tokens) < 2) {
+                echo "Invalid input. Please enter the operation in the format 'number1 operation number2'.\n";
+                continue;
+            }
+            list($num1, $operation, $num2) = count($tokens) == 2 ? [...$tokens, null] : $tokens;
+
+            try {
+                $result = $this->calculate($operation, (float)$num1, (float)$num2);
+                echo "Result: $result\n";
+            } catch (Exception $e) {
+                echo 'Error: ' . $e->getMessage() . "\n";
+            }
         }
     }
 

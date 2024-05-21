@@ -1,0 +1,6 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+echo 'Initializing calculator...' . PHP_EOL;
+$cli = new \FintinaMadalin\CliCalculator\CalculatorService();
+$cli->runInteractive();
